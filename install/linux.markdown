@@ -44,6 +44,7 @@ you can try the AppImage download which should work on most Linux systems.
 |------------|------------------|---------------------|
 |Ubuntu18    |[{{ ubuntu18_deb_stable_asset }}]({{ ubuntu18_deb_stable }}) |[{{ ubuntu18_deb_nightly_asset }}]({{ ubuntu18_deb_nightly }})|
 |Ubuntu20    |[{{ ubuntu20_deb_stable_asset }}]({{ ubuntu20_deb_stable }})  |[{{ ubuntu20_deb_nightly_asset }}]({{ ubuntu20_deb_nightly }})|
+|Ubuntu22    |Nightly builds only|[{{ ubuntu22_deb_nightly_asset }}]({{ ubuntu22_deb_nightly }})|
 |Debian9     |[{{ debian9_deb_stable_asset }}]({{ debian9_deb_stable }}) |[{{ debian9_deb_nightly_asset }}]({{ debian9_deb_nightly }})|
 |Debian10    |[{{ debian10_deb_stable_asset }}]({{ debian10_deb_stable }}) |[{{ debian10_deb_nightly_asset }}]({{ debian10_deb_nightly }})|
 |Debian11    |[{{ debian11_deb_stable_asset }}]({{ debian11_deb_stable }}) |[{{ debian11_deb_nightly_asset }}]({{ debian11_deb_nightly }})|
@@ -61,23 +62,38 @@ sudo apt install -y ./{{ ubuntu20_deb_stable_asset }}
 
 ## Installing on Fedora and rpm-based Systems
 
-The CI system builds `.rpm` files on CentOS and Fedora systems.
+The CI system builds `.rpm` files on CentOS, Fedora and openSUSE systems.
 These are likely compatible with other rpm-based distributions.
 Alternatively, you can try the AppImage download with should work
 on most Linux systems.
 
 |Distro      | Stable           | Nightly             |
 |------------|------------------|---------------------|
+|CentOS7     |Nightly builds only |[{{ centos7_rpm_nightly_asset }}]({{ centos7_rpm_nightly }})|
 |CentOS8     |[{{ centos8_rpm_stable_asset }}]({{ centos8_rpm_stable }}) |[{{ centos8_rpm_nightly_asset }}]({{ centos8_rpm_nightly }})|
+|CentOS9     |[{{ centos9_rpm_stable_asset }}]({{ centos9_rpm_stable }})|[{{ centos9_rpm_nightly_asset }}]({{ centos9_rpm_nightly }})|
 |Fedora33    |[{{ fedora33_rpm_stable_asset }}]({{ fedora33_rpm_stable }}) |[{{ fedora33_rpm_nightly_asset }}]({{ fedora33_rpm_nightly }})|
 |Fedora34    |[{{ fedora34_rpm_stable_asset }}]({{ fedora34_rpm_stable }}) |[{{ fedora34_rpm_nightly_asset }}]({{ fedora34_rpm_nightly }})|
 |Fedora35    |[{{ fedora35_rpm_stable_asset }}]({{ fedora35_rpm_stable }}) |[{{ fedora35_rpm_nightly_asset }}]({{ fedora35_rpm_nightly }})|
+|Fedora36    |Nightly builds only |[{{ fedora36_rpm_nightly_asset }}]({{ fedora36_rpm_nightly }})|
+|openSUSE Leap    |Nighty builds only|[{{ opensuse_leap_rpm_nightly_asset }}]({{ opensuse_leap_rpm_nightly }})|
+|openSUSE Tumbleweed    |Nighty builds only|[{{ opensuse_tumbleweed_rpm_nightly_asset }}]({{ opensuse_tumbleweed_rpm_nightly }})|
 
 To download and install from the CLI you can use something like this, which
 shows how to install the Fedora 35 package:
 
 ```bash
 sudo dnf install -y {{ fedora35_rpm_stable }}
+```
+
+WezTerm is also available in the official Factory repo in openSUSE Tumbleweed. To install from Factory instead
+from the rpm provided by WezTerm's Github repository, you can use Yast. If you prefer the CLI, you can install
+it as root user with
+
+```bash
+zypper addrepo https://download.opensuse.org/repositories/openSUSE:Factory/standard/openSUSE:Factory.repo
+zypper refresh
+zypper install wezterm
 ```
 
 * The package installs `/usr/bin/wezterm` and `/usr/share/applications/org.wezfurlong.wezterm.desktop`
@@ -94,6 +110,17 @@ wish to use one of these AUR options:
 |---------------------|-|
 |Nightly Binaries     |<https://aur.archlinux.org/packages/wezterm-nightly-bin/>|
 |Build from source    |<https://aur.archlinux.org/packages/wezterm-git/>|
+
+## Alpine Linux
+
+APKs are built out from the `main` branch.
+
+|Version | Stable        | Nightly |
+|--------|---------------|---------|
+| 3.12   |               |[{{ alpine3_12_apk_nightly_asset }}]({{ alpine3_12_apk_nightly }})|
+| 3.13   |               |[{{ alpine3_13_apk_nightly_asset }}]({{ alpine3_13_apk_nightly }})|
+| 3.14   |               |[{{ alpine3_14_apk_nightly_asset }}]({{ alpine3_14_apk_nightly }})|
+| 3.15   |               |[{{ alpine3_15_apk_nightly_asset }}]({{ alpine3_15_apk_nightly }})|
 
 ## Linuxbrew Tap
 
